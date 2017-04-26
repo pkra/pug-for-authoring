@@ -1,21 +1,36 @@
-    // modified from https://pugjs.org/js/generic.js
+// modified from https://pugjs.org/js/generic.js
 !function r(e,t,n){function u(i,c){if(!t[i]){if(!e[i]){var f="function"==typeof require&&require;if(!c&&f)return f(i,!0);if(o)return o(i,!0);var s=new Error("Cannot find module '"+i+"'");throw s.code="MODULE_NOT_FOUND",s}var a=t[i]={exports:{}};e[i][0].call(a.exports,function(r){var t=e[i][1][r];return u(t||r)},a,a.exports,r,e,t,n)}return t[i].exports}for(var o="function"==typeof require&&require,i=0;i<n.length;i++)u(n[i]);return u}({1:[function(r,e,t){"use strict";var n=r("pug"),u=function(r){if(r&&r.__esModule)return r;var e={};if(null!=r)for(var t in r)Object.prototype.hasOwnProperty.call(r,t)&&(e[t]=r[t]);return e.default=r,e}(n);r("../browser/menu.js"),window.pug=u},{"../browser/menu.js":1,pug:"pug"}]},{},[1]);
 
-let url = window.location.href.substr(0, location.href.lastIndexOf("/") + 1) + '/content.pug'
 
 // load content.pug and render it
+let url = window.location.href.substr(0, location.href.lastIndexOf("/") + 1) + '/content.pug'
 const load = function(){
     fetch(url, {
 	method: 'get'
 }).then(function(response) {
 	response.text().then( function(value){
-         document.body.innerHTML = pug.render(value);
-         postProcessing();
+        document.getElementById('input').value = value;
+        render();
     })
 }).catch(function(err) {
 	console.warn('An Error! ', err)
 });
    
+document.getElementById("input").addEventListener("input", function() {
+    render();
+}, false);
+}
+
+const render = function(){
+    let result = false;
+    try {
+        result = pug.render(document.getElementById('input').value);
+    }
+    catch(e){console.log(e)}
+    if (result) {
+        document.getElementById('output').innerHTML = result;
+        postProcessing();
+    }
 }
 
 const postProcessing = function(){
@@ -98,6 +113,8 @@ const postProcessing = function(){
 
     let footnotes = document.querySelectorAll('.footnote');
     for (let i = 0; i< footnotes.length; i++) handleFootnote(footnotes[i], i+1);
+    if (window.MathJax) MathJax.Hub.Queue(['Typeset', MathJax.Hub]);
+}
 
     // MathJax
     window.MathJax = {
@@ -127,9 +144,6 @@ const postProcessing = function(){
     }
     let script = document.createElement('script');
     script.type = 'text/javascript';
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML-full';
+    script.src = 'https://cdn.rawgit.com/mathjax/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML-full';
     document.getElementsByTagName('head')[0].appendChild(script);
-}
-
-
 window.onload = load; 
