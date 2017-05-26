@@ -22,6 +22,9 @@ mixin block(type, id, suffix)
 mixin theorem(id, suffix)
   +block('Theorem', id, suffix)
 
+//- +theorem('mythm','mysuffix') Hello World
+//- this doesn't work as I'd expected -- pkra.
+
 //- TODO
 //- properly handle other theorem environments (proposition, corollary)
 //- easier \ref markup (dpub-aria? custom element?)
@@ -47,7 +50,6 @@ section
 +block('Abstract', 'abstract')
   p Let $\mathcal{C}$ be a permutation class that does not contain all layered permutations or all colayered permutations. We prove that every permutation in $\mathcal{C}$ contains a monotone subsequence of linear size.
 
-+theorem('mythm','mysuffix') Hello World
 
 p Ramsey's Theorem tells us that every graph on $n$ vertices has a clique or independent set of size at least a constant times $\log n$. In 1989, Erdős and Hajnal conjectured that one can do much better when avoiding a fixed induced subgraph:
 
