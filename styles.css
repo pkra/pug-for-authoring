@@ -1,0 +1,509 @@
+ /*! normalize.css v6.0.0 | MIT License | github.com/necolas/normalize.css */
+
+ html {
+     line-height: 1.15;
+     -ms-text-size-adjust: 100%;
+     -webkit-text-size-adjust: 100%
+ }
+
+ article,
+ aside,
+ footer,
+ header,
+ nav,
+ section {
+     display: block
+ }
+
+ h1 {
+     font-size: 2em;
+     margin: .67em 0
+ }
+
+ figcaption,
+ figure,
+ main {
+     display: block
+ }
+
+ figure {
+     margin: 1em 40px
+ }
+
+ hr {
+     box-sizing: content-box;
+     height: 0;
+     overflow: visible
+ }
+
+ pre {
+     font-family: monospace, monospace;
+     font-size: 1em
+ }
+
+ a {
+     background-color: transparent;
+     -webkit-text-decoration-skip: objects
+ }
+
+ abbr[title] {
+     border-bottom: none;
+     text-decoration: underline;
+     text-decoration: underline dotted
+ }
+
+ b,
+ strong {
+     font-weight: inherit;
+     font-weight: bolder
+ }
+
+ code,
+ kbd,
+ samp {
+     font-family: monospace, monospace;
+     font-size: 1em
+ }
+
+ dfn {
+     font-style: italic
+ }
+
+ mark {
+     background-color: #ff0;
+     color: #000
+ }
+
+ small {
+     font-size: 80%
+ }
+
+ sub,
+ sup {
+     font-size: 75%;
+     line-height: 0;
+     position: relative;
+     vertical-align: baseline
+ }
+
+ sub {
+     bottom: -.25em
+ }
+
+ sup {
+     top: -.5em
+ }
+
+ audio,
+ video {
+     display: inline-block
+ }
+
+ audio:not([controls]) {
+     display: none;
+     height: 0
+ }
+
+ img {
+     border-style: none
+ }
+
+ svg:not(:root) {
+     overflow: hidden
+ }
+
+ button,
+ input,
+ optgroup,
+ select,
+ textarea {
+     margin: 0
+ }
+
+ button,
+ input {
+     overflow: visible
+ }
+
+ button,
+ select {
+     text-transform: none
+ }
+
+ button,
+ html [type="button"],
+ /* 1 */
+
+ [type="reset"],
+ [type="submit"] {
+     -webkit-appearance: button
+ }
+
+ button::-moz-focus-inner,
+ [type="button"]::-moz-focus-inner,
+ [type="reset"]::-moz-focus-inner,
+ [type="submit"]::-moz-focus-inner {
+     border-style: none;
+     padding: 0
+ }
+
+ button:-moz-focusring,
+ [type="button"]:-moz-focusring,
+ [type="reset"]:-moz-focusring,
+ [type="submit"]:-moz-focusring {
+     outline: 1px dotted ButtonText
+ }
+
+ legend {
+     box-sizing: border-box;
+     color: inherit;
+     display: table;
+     max-width: 100%;
+     padding: 0;
+     white-space: normal
+ }
+
+ progress {
+     display: inline-block;
+     vertical-align: baseline
+ }
+
+ textarea {
+     overflow: auto
+ }
+
+ [type="checkbox"],
+ [type="radio"] {
+     box-sizing: border-box;
+     padding: 0
+ }
+
+ [type="number"]::-webkit-inner-spin-button,
+ [type="number"]::-webkit-outer-spin-button {
+     height: auto
+ }
+
+ [type="search"] {
+     -webkit-appearance: textfield;
+     outline-offset: -2px
+ }
+
+ [type="search"]::-webkit-search-cancel-button,
+ [type="search"]::-webkit-search-decoration {
+     -webkit-appearance: none
+ }
+
+ ::-webkit-file-upload-button {
+     -webkit-appearance: button;
+     font: inherit
+ }
+
+ details,
+ /* 1 */
+
+ menu {
+     display: block
+ }
+
+ summary {
+     display: list-item
+ }
+
+ canvas {
+     display: inline-block
+ }
+
+ template {
+     display: none
+ }
+
+ [hidden] {
+     display: none
+ }
+ /*! END normalize.css v6.0.0 | MIT License | github.com/necolas/normalize.css */
+
+ * {
+     box-sizing: border-box
+ }
+
+
+ section {
+     width: 100%;
+     overflow: auto;
+ }
+
+ html {
+     font-family: Times, TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif
+ }
+
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6,
+ header {
+     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
+ }
+
+ body {
+     font-size: calc(1em + 1vmin);
+     color: #2d2d2d
+ }
+
+ h1 {
+     font-size: 1.6875em;
+     line-height: 2em;
+     font-size: calc(1em + .815vm);
+     font-size: calc(1em + .815vmin);
+     line-height: calc(1em + .815vm);
+     line-height: calc(1em + .815vmin)
+ }
+
+ h2 {
+     font-size: 1.375em;
+     line-height: 1.6em;
+     font-size: calc(1em + .664vm);
+     font-size: calc(1em + .664vmin);
+     line-height: calc(1em + .664vm);
+     line-height: calc(1em + .664vmin);
+     margin-top: 1em
+ }
+
+ h3 {
+     font-size: 1.2em;
+     line-height: 1.6em;
+     font-size: calc(1em + .541vm);
+     font-size: calc(1em + .541vmin);
+     line-height: calc(1em + .541vm);
+     line-height: calc(1em + .541vmin);
+     margin-top: 1em
+ }
+
+ h4,
+ h5,
+ h6 {
+     font-size: 1em;
+     line-height: 1.6em
+ }
+
+ em {
+     font-style: italic
+ }
+
+ strong {
+     font-weight: bolder
+ }
+
+ a {
+     color: #000;
+     text-decoration: none;
+     border-bottom: dotted gray 1px
+ }
+
+ a:hover {
+     outline: 1px dotted #000
+ }
+
+ p {
+     margin: 1em 0
+ }
+
+ dl {
+     display: block
+ }
+
+ dl:after {
+     content: '';
+     display: block;
+     clear: both
+ }
+
+ dt {
+     display: block;
+     float: left;
+     clear: left;
+     padding-right: .5em
+ }
+
+ dd {
+     display: block;
+     padding-left: 1.66em
+ }
+
+ img {
+     max-width: 100%
+ }
+
+ :focus {
+     outline: 1px dotted #000
+ }
+
+ body {
+     padding: 1em 0;
+     max-width: 42em;
+     margin: auto;
+ }
+
+ .math--block {
+     display: block;
+     overflow-x: auto;
+     overflow-y: hidden;
+     margin: 1em 0
+ }
+
+ .math--block:target {
+     background-color: #c0efff
+ }
+
+ .reference {
+     cursor: pointer;
+     padding-right: 3px;
+     padding-left: 3px;
+     background-color: #efefef;
+     color: #000;
+     border-bottom: 1px solid #d0d0d0;
+     border-right: 1px solid #fff
+ }
+
+ .reference:hover {
+     background-color: #d0d0d0;
+     outline: 0
+ }
+
+ .reference--backlink,
+ .reference--toc {
+     background-color: #fff;
+     border-bottom: 1px solid #ccc
+ }
+
+ .reference--backlink:hover,
+ .reference--toc:hover {
+     background-color: #ccc
+ }
+
+ .reference--sec {
+     background: #e1f0ff;
+     color: #1c2833;
+     border-bottom: 1px solid #868f98
+ }
+
+ .reference--sec:hover {
+     background-color: #868f98
+ }
+
+ .reference--bib {
+     background: #ffce00;
+     color: #1d1905;
+     border-bottom: 1px solid #bf9a00
+ }
+
+ .reference--bib:hover {
+     background-color: #bf9a00
+ }
+
+ .reference--fig {
+     background: #ffb5d0;
+     color: #39134c;
+     border-bottom: 1px solid #d799af
+ }
+
+ .reference--fig:hover {
+     background-color: #d799af
+ }
+
+ .reference--math {
+     background: #c0efff;
+     color: #1c2a43;
+     border-bottom: 1px solid #add8e6
+ }
+
+ .reference--math:hover {
+     background-color: #add8e6
+ }
+
+ .footnote,
+ .reference--footnote {
+     font-size: .9em;
+     border-radius: 2px;
+     border: 1px solid #d0d0d0;
+     background-color: #efefef;
+     color: #000
+ }
+
+ .reference--footnote {
+     vertical-align: super
+ }
+
+ .reference--footnote:hover {
+     background-color: #d0d0d0
+ }
+
+ .footnote {
+     display: none
+ }
+
+ .footnote:target {
+     display: block;
+     background-color: #efefef;
+     border-radius: 2px;
+     border: 1px solid #d0d0d0;
+     padding: 2px 2px 2px 0
+ }
+
+ .title {
+     font-size: 1.8em;
+     line-height: 2em;
+     font-size: calc(1em + 1vm);
+     font-size: calc(1em + 1vmin);
+     line-height: calc(1em + 1vm);
+     line-height: calc(1em + 1vmin)
+ }
+
+ .title--authors {
+     font-style: italic
+ }
+
+ .dedication {
+     font-size: .9em
+ }
+
+ .proof:after {
+     content: "";
+     display: block;
+     margin: 0 25% 0 25%;
+     border-bottom: 1px solid #add8e6;
+     margin-bottom: 1em
+ }
+
+ .proof__box {
+     margin-top: -1.5em;
+     text-align: right
+ }
+
+ .bracket {
+     position: relative
+ }
+
+ .bracket:before {
+     border: 3px solid #add8e6;
+     bottom: -6px;
+     content: '';
+     position: absolute;
+     top: -6px;
+     width: 3px;
+     border-right: none;
+     left: -9px
+ }
+
+ .margin--left--small {
+     margin-left: .8175rem
+ }
+
+ .margin--left {
+     margin-left: 1.625rem
+ }
+
+ .margin--left--large {
+     margin-left: 3.25rem
+ }

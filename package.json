@@ -1,0 +1,26 @@
+{
+  "name": "pug-for-authoring",
+  "version": "1.0.0",
+  "description": "Example for using pug to author ",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"no tests\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pkra/pug-for-authoring.git"
+  },
+  "keywords": [
+    "pug",
+    "authoring",
+    "content",
+    "math"
+  ],
+  "author": "Peter Krautzberger, Sam Coskey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pkra/pug-for-authoring/issues"
+  },
+  "homepage": "https://github.com/pkra/pug-for-authoring#readme"
+}

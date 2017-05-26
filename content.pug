@@ -1,31 +1,65 @@
-span Source: <a href="https://arxiv.org/abs/1511.01076">arxiv#1511.01076</a>  Distributed under a Creative Commons Attribution 4.0 International License
+  <link rel="stylesheet"  href="styles.css"/>
 
+span Source: <a href="https://arxiv.org/abs/1511.01076">arxiv#1511.01076</a>  Distributed under a Creative Commons Attribution 4.0 International License
+<script src="js/math.js"></script>
+script postProcessing();
 mixin citation(id)
   span.cite
     a(data-key=id)= id
 
-//- TODO 
+mixin block(type, id, suffix)
+  section(class= type, id= id)
+    h1= type
+      |
+      |
+      span= suffix
+      |
+      |
+    if block
+      block
+
+mixin theorem(id, suffix)
+  +block('Theorem', id, suffix)
+
+//- TODO
 //- properly handle other theorem environments (proposition, corollary)
 //- easier \ref markup (dpub-aria? custom element?)
 //- experiment with SVG libs like jsxgraph/jessiecode
 //- bibliography
-hr 
+hr
 
 span(hidden) $\newcommand{\Av}{\operatorname{Av}}\newcommand{\Grid}{\operatorname{Grid}}\newcommand{\C}{\mathcal{C}}\newcommand{\D}{\mathcal{D}}\newcommand{\st}{\::\:}$
 
+section
+  h1 An Erdős&ndash;Hajnal analogue for permutation classes
+  p Vincent Vatter
+  aside
+    p
+      small Department of Mathematics, University of Florida, Gainesville, Florida, USA
+        br
+
+        Discrete Mathematics and Theoretical Computer Science DMTCS vol. 18:2, 2016, #4
+        br
+        em received 4th Nov. 2015, accepted 8th Feb. 2016
+
+
++block('Abstract', 'abstract')
+  p Let $\mathcal{C}$ be a permutation class that does not contain all layered permutations or all colayered permutations. We prove that every permutation in $\mathcal{C}$ contains a monotone subsequence of linear size.
+
++theorem('mythm','mysuffix') Hello World
 
 p Ramsey's Theorem tells us that every graph on $n$ vertices has a clique or independent set of size at least a constant times $\log n$. In 1989, Erdős and Hajnal conjectured that one can do much better when avoiding a fixed induced subgraph:
 
 theorem#erdos-hajnal-conjecture
-  h1 The Erdős&ndash;Hajnal Conjecture 
+  h1 The Erdős&ndash;Hajnal Conjecture
     +citation('EH')
-  p 
+  p
     em For every graph $H$ there is a constant $\delta>0$ such that every graph on $n$ vertices which does not contain $H$ as an induced subgraph has a clique or independent set of size at least $n^\delta$.
 
 p We refer to Chudnovsky's survey&nbsp;<cite target="chudnovsky_the-erdos--hajn"></cite> for an account of the progress that has been made toward the Erdős&ndash;Hajnal Conjecture. Here we investigate a version of this conjecture for permutations. In this context, the analogue of the induced subgraph order is the permutation pattern order and the analogues of cliques and independent sets are decreasing and increasing subsequences, respectively. Thus the naive translation of the Erdős&ndash;Hajnal Conjecture to permutations is well known to hold with $\delta=\nicefrac{1}{2}$:
 
 theorem#erdos-hajnal-conjecture
-  h1 The Erdős&ndash;Szekeres Theorem 
+  h1 The Erdős&ndash;Szekeres Theorem
     cite(target="erdos_a-combinatorial")
   p Every permutation of length at least $(k-1)(\ell-1)+1$ contains either a decreasing subsequence of length $k$ or an an increasing subsequence of length $\ell$.
 
@@ -35,22 +69,25 @@ p The Erdős&ndash;Szekeres Theorem is best possible in that there are permutati
 
 figure#fig-layered-EES
   div.tikz <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="233.625" height="86.104" viewBox="0 0 175.21889 64.578262"><defs><symbol overflow="visible" id="a"><path d="M4.422-2.5c0-1.063-.89-1.922-1.922-1.922-1.078 0-1.953.89-1.953 1.922 0 1.063.875 1.938 1.953 1.938 1.03 0 1.922-.86 1.922-1.938zm0 0"/></symbol></defs><use xlink:href="#a" x="204.996" y="162.154" width="100%" height="100%" transform="translate(-203.543 -113.476)"/><use xlink:href="#a" x="212.083" y="169.241" width="100%" height="100%" transform="translate(-203.543 -113.476)"/><use xlink:href="#a" x="219.17" y="176.328" width="100%" height="100%" transform="translate(-203.543 -113.476)"/><use xlink:href="#a" x="226.256" y="140.894" width="100%" height="100%" transform="translate(-203.543 -113.476)"/><use xlink:href="#a" x="233.343" y="147.981" width="100%" height="100%" transform="translate(-203.543 -113.476)"/><use xlink:href="#a" x="240.43" y="155.067" width="100%" height="100%" transform="translate(-203.543 -113.476)"/><use xlink:href="#a" x="247.516" y="119.634" width="100%" height="100%" transform="translate(-203.543 -113.476)"/><use xlink:href="#a" x="254.603" y="126.721" width="100%" height="100%" transform="translate(-203.543 -113.476)"/><use xlink:href="#a" x="261.69" y="133.807" width="100%" height="100%" transform="translate(-203.543 -113.476)"/><path d="M.4 64.18h21.26V42.922H.4zm21.26-21.262h21.262V21.66H21.66zM42.922 21.66H64.18V.4H42.922zm0 0" fill="none" stroke="#000" stroke-width=".797" stroke-linecap="round" stroke-miterlimit="10"/><use xlink:href="#a" x="315.636" y="133.807" width="100%" height="100%" transform="translate(-203.543 -113.476)"/><use xlink:href="#a" x="322.723" y="126.72" width="100%" height="100%" transform="translate(-203.543 -113.476)"/><use xlink:href="#a" x="329.809" y="119.634" width="100%" height="100%" transform="translate(-203.543 -113.476)"/><use xlink:href="#a" x="336.896" y="155.067" width="100%" height="100%" transform="translate(-203.543 -113.476)"/><use xlink:href="#a" x="343.983" y="147.98" width="100%" height="100%" transform="translate(-203.543 -113.476)"/><use xlink:href="#a" x="351.07" y="140.894" width="100%" height="100%" transform="translate(-203.543 -113.476)"/><use xlink:href="#a" x="358.156" y="176.327" width="100%" height="100%" transform="translate(-203.543 -113.476)"/><use xlink:href="#a" x="365.243" y="169.241" width="100%" height="100%" transform="translate(-203.543 -113.476)"/><use xlink:href="#a" x="372.33" y="162.154" width="100%" height="100%" transform="translate(-203.543 -113.476)"/><path d="M111.04 21.66h21.26V.4h-21.26zm21.26 21.258h21.26V21.66H132.3zm21.263 21.262h21.257V42.922h-21.257zm0 0" fill="none" stroke="#000" stroke-width=".797" stroke-linecap="round" stroke-miterlimit="10"/></svg>
-  figcaption 
-    em Fig. 1 
+  figcaption
+    em Fig. 1
     The layered permutation $321\ 654\ 987=\oplus^3 (321)$ and the colayered permutation $789\ 456\ 123=\ominus^3 (123)$.
 
-p Despite the fact that there are a great many extremal Erdős&ndash;Szekeres permutations, we need to define only two families, the <em>layered</em> and <em>colayered</em> extremal Erdős&ndash;Szekeres permutations, of which examples are plotted in <a class="figure" href="#fig-layered-EES"></a>. It is convenient to use the <em>sum</em> and <em>skew sum</em> operations in defining these permutations, which can be defined pictorially as below. 
+p Despite the fact that there are a great many extremal Erdős&ndash;Szekeres permutations, we need to define only two families, the <em>layered</em> and <em>colayered</em> extremal Erdős&ndash;Szekeres permutations, of which examples are plotted in <a class="figure" href="#fig-layered-EES"></a>. It is convenient to use the <em>sum</em> and <em>skew sum</em> operations in defining these permutations, which can be defined pictorially as below.
 
 div.tikz <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="233.175" height="38.854" viewBox="0 0 174.88127 29.14076"><defs><symbol overflow="visible" id="b"><path d="M7.203-2.5c0-1.828-1.5-3.313-3.328-3.313C2.03-5.813.547-4.313.547-2.5c0 1.844 1.5 3.328 3.328 3.328 1.844 0 3.328-1.5 3.328-3.328zM.797-2.625c.094-1.672 1.39-2.86 2.953-2.938v2.938zM4-5.563c1.563.08 2.844 1.282 2.953 2.938H4zM3.75.577C2.203.5.89-.673.797-2.373H3.75zm3.203-2.952C6.843-.672 5.53.5 4 .578v-2.953zm0 0"/></symbol><symbol overflow="visible" id="e"><path d="M7.203-2.5c0-1.828-1.5-3.313-3.328-3.313C2.03-5.813.547-4.313.547-2.5c0 1.844 1.5 3.328 3.328 3.328 1.844 0 3.328-1.5 3.328-3.328zM.797-2.625C.89-4.39 2.344-5.563 3.875-5.563c1.563 0 2.97 1.188 3.078 2.938zm6.156.25C6.843-.562 5.39.578 3.875.578 2.328.578.89-.594.797-2.375zm0 0"/></symbol><symbol overflow="visible" id="a"><path d="M2.64-3.72h1.126c-.33 1.47-.422 1.908-.422 2.58 0 .14 0 .406.078.75.11.437.22.5.36.5.202 0 .42-.172.42-.376 0-.062 0-.078-.06-.218-.298-.72-.298-1.375-.298-1.657 0-.52.078-1.07.187-1.58h1.13c.14 0 .5 0 .5-.35 0-.24-.21-.24-.4-.24H1.91c-.218 0-.593 0-1.03.47-.345.39-.61.84-.61.89 0 .01 0 .11.125.11.08 0 .095-.05.158-.13.485-.767 1.063-.767 1.266-.767h.56C2.06-2.52 1.53-1.317 1.11-.41c-.08.156-.08.17-.08.25 0 .187.154.265.28.265.296 0 .374-.283.5-.64.14-.47.14-.487.265-.987zm0 0"/></symbol><symbol overflow="visible" id="c"><path d="M5.156-3.72c.14 0 .5 0 .5-.342 0-.235-.218-.235-.39-.235H2.984c-1.5 0-2.61 1.64-2.61 2.828 0 .88.596 1.58 1.5 1.58 1.173 0 2.5-1.2 2.5-2.73 0-.17 0-.65-.31-1.09zM1.89-.11C1.39-.11 1-.47 1-1.186c0-.297.11-1.11.47-1.704.42-.688 1.014-.83 1.358-.83.828 0 .906.658.906.97 0 .47-.203 1.28-.53 1.797-.392.578-.938.844-1.313.844zm0 0"/></symbol><symbol overflow="visible" id="d"><path d="M6.844-3.266c.156 0 .343 0 .343-.187 0-.203-.187-.203-.328-.203H.89c-.14 0-.328 0-.328.203 0 .187.188.187.33.187zm.015 1.938c.14 0 .32 0 .32-.203 0-.19-.19-.19-.35-.19H.89c-.14 0-.328 0-.328.19 0 .2.188.2.33.2zm0 0"/></symbol></defs><use xlink:href="#a" x="203.638" y="412.92" width="100%" height="100%" transform="translate(-203.904 -398.336)"/><use xlink:href="#b" x="211.798" y="412.92" width="100%" height="100%" transform="translate(-203.904 -398.336)"/><use xlink:href="#c" x="221.759" y="412.92" width="100%" height="100%" transform="translate(-203.904 -398.336)"/><use xlink:href="#d" x="230.639" y="412.92" width="100%" height="100%" transform="translate(-203.904 -398.336)"/><path d="M37.416 28.742h14.172V14.57H37.416zM51.588 14.57h14.176V.4H51.588zm0 0" fill="none" stroke="#000" stroke-width=".797" stroke-linecap="round" stroke-miterlimit="10"/><use xlink:href="#a" x="245.388" y="422.138" width="100%" height="100%" transform="translate(-203.904 -398.336)"/><use xlink:href="#c" x="259.555" y="407.965" width="100%" height="100%" transform="translate(-203.904 -398.336)"/><use xlink:href="#a" x="312.36" y="412.92" width="100%" height="100%" transform="translate(-203.904 -398.336)"/><use xlink:href="#e" x="320.64" y="412.92" width="100%" height="100%" transform="translate(-203.904 -398.336)"/><use xlink:href="#c" x="330.6" y="412.92" width="100%" height="100%" transform="translate(-203.904 -398.336)"/><use xlink:href="#d" x="339.36" y="412.92" width="100%" height="100%" transform="translate(-203.904 -398.336)"/><path d="M146.135 14.57h14.176V.4h-14.17zm14.175 14.172h14.173V14.57H160.31zm0 0" fill="none" stroke="#000" stroke-width=".797" stroke-linecap="round" stroke-miterlimit="10"/><use xlink:href="#a" x="354.109" y="407.964" width="100%" height="100%" transform="translate(-203.904 -398.336)"/><use xlink:href="#c" x="368.275" y="422.137" width="100%" height="100%" transform="translate(-203.904 -398.336)"/></svg>
 
-p We use the symbols $\oplus^k$ and $\ominus^k$ to denote repeated sums and skew sums, respectively, so the extremal Erdős&ndash;Szekeres layered permutation of length $k^2$ is \[ \oplus^k (k\cdots 21) = \underbrace{(k\cdots 21)\oplus\cdots\oplus (k\cdots 21)}_{\text{\footnotesize $k$ summands}}. \] We show that these two families of extremal permutations are the only obstructions preventing a class from having a linear bound on monotone subsequences:
+p We use the symbols $\oplus^k$ and $\ominus^k$ to denote repeated sums and skew sums, respectively, so the extremal Erdős&ndash;Szekeres layered permutation of length $k^2$ is \[ \oplus^k (k\cdots 21) = \underbrace{(k\cdots 21)\oplus\cdots\oplus (k\cdots 21)}_{\text{ $k$ summands}}. \] We show that these two families of extremal permutations are the only obstructions preventing a class from having a linear bound on monotone subsequences:
 
 theorem#thm-EH-main
   p Let $\C$ be a permutation class that does not contain the class of layered permutations or the class of colayered permutations. There is a constant $c>0$ such that every permutation of length $n$ in $\C$ contains a monotone subsequence of length at least $cn$.
 
-p One special case of 
+p
+  | One special case of
+  |
   a.ref(href="#thm-EH-main")
-  is quite easy. By the folklore result that every permutation avoiding $k\cdots 21$ can be written as the union of $k-1$ increasing sequences (which can also be viewed as a consequence of Greene's Theorem&nbsp;<cite target="greene_an-extension-of"></cite>, we obtain the following.
+  |
+  | is quite easy. By the folklore result that every permutation avoiding $k\cdots 21$ can be written as the union of $k-1$ increasing sequences (which can also be viewed as a consequence of Greene's Theorem&nbsp;<cite target="greene_an-extension-of"></cite>, we obtain the following.
 
 hr
 
@@ -58,25 +95,25 @@ hr
 proposition#prop-EH-mono
   p Let $\C$ be a permutation class that does not contain $k\cdots 21$ (or, by symmetry, $12\cdots k$). Then every permutation of length $n$ in $\C$ contains a monotone subsequence of length at least $n/(k-1)$.
 
-p To establish 
+p To establish
   cite(target="thm-EH-main")
   | we first recall some results on transversals of (nonhomogeneous
-  span.footnote There is also a homogeneous case, for which we refer to 
+  span.footnote There is also a homogeneous case, for which we refer to
     cite(target="#kaiser_transversals-of")
   | $d$-intervals (although we only appeal to the case $d=2$ in what follows).  Let $L_1$, $\dots$, $L_d$ be disjoint copies of the real line. A $d$-interval $I$ is a nonempty subset of $L_1\cup\cdots\cup L_d$ such that each <em>component</em> $I\cap L_i$ is either empty or a closed interval. The <em>packing number</em> of a set $\mathfrak{I}$ of $d$-intervals is the maximum number of pairwise disjoint elements of $\mathfrak{I}$, and this quantity is denoted $\nu(\mathfrak{I})$. A subset of $L_1\cup\cdots \cup L_d$ which intersects every member of $\mathfrak{I}$ is called a <em>transversal</em> of $\mathfrak{I}$ and the minimum size of a transversal of $\mathfrak{I}$ is its <em>transversal number</em>, $\tau(\mathfrak{I})$.
 
 figure#fig-2-interval
   div.tikz <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="394.174" height="150.554" viewBox="0 0 295.63013 112.91532"><defs><symbol overflow="visible" id="a"><path d="M4.422-2.5c0-1.063-.89-1.922-1.922-1.922-1.078 0-1.953.89-1.953 1.922 0 1.063.875 1.938 1.953 1.938 1.03 0 1.922-.86 1.922-1.938zm0 0"/></symbol><symbol overflow="visible" id="b"><path d="M3.094-4.828c.062-.266.078-.344.812-.344.235 0 .313 0 .313-.156 0-.016-.02-.11-.15-.11-.17 0-.41.016-.58.016h-.56c-.83 0-1.03-.016-1.08-.016-.03 0-.16 0-.16.14 0 .126.09.126.22.126.26 0 .5 0 .5.125 0 .03 0 .03-.03.14L1.33-.624c-.078.297-.094.36-.687.36-.14 0-.25 0-.25.156C.39 0 .5 0 .64 0h3.844c.204 0 .204-.016.266-.156.094-.22.672-1.72.672-1.797 0-.078-.063-.125-.125-.125-.078 0-.094.062-.156.187-.28.73-.62 1.62-2.06 1.62h-1C2-.28 1.97-.28 1.97-.33c0-.063.016-.14.048-.19zm0 0"/></symbol><symbol overflow="visible" id="d"><path d="M3.094-4.828c.062-.266.078-.344.687-.344.18 0 .29 0 .29-.156 0-.016-.01-.11-.14-.11s-.37.016-.5.016h-1.1c-.11 0-.4-.016-.51-.016-.03 0-.15 0-.15.14 0 .126.098.126.25.126.52 0 .52.047.52.14 0 .016 0 .048-.044.173L1.33-.62c-.078.28-.094.36-.687.36-.18 0-.28 0-.28.156 0 .032.03.11.13.11.11 0 .375-.016.5-.03H2.1c.11.014.39.03.5.03.046 0 .155 0 .155-.156 0-.11-.093-.11-.25-.11-.124 0-.17 0-.312-.015C2.07-.29 1.99-.29 1.99-.385c0-.046.016-.046.047-.156zm0 0"/></symbol><symbol overflow="visible" id="c"><path d="M3.375-2.36c-.22.063-.266.235-.266.33 0 .186.15.233.23.233.18 0 .36-.14.36-.375 0-.328-.36-.47-.66-.47-.41 0-.64.314-.71.423-.08-.15-.32-.42-.77-.42-.69 0-1.098.72-1.098.92 0 .04.034.08.11.08.096 0 .11-.03.127-.08.155-.48.56-.71.843-.71.298 0 .39.19.39.39 0 .07 0 .13-.045.32-.14.55-.266 1.1-.298 1.17-.095.22-.314.43-.564.43-.03 0-.2 0-.34-.092.234-.08.27-.27.27-.316 0-.16-.13-.24-.25-.24C.56-.78.37-.65.37-.4c0 .342.376.47.657.47.35-.004.6-.238.71-.425.128.25.41.43.75.43.707 0 1.097-.73 1.097-.92 0-.014 0-.092-.11-.092-.077 0-.093.05-.11.11-.17.52-.592.7-.86.7-.22 0-.373-.12-.373-.37 0-.124.02-.25.08-.452l.19-.78c.06-.23.1-.34.22-.48.08-.094.24-.204.42-.204.03 0 .21 0 .35.08zm0 0"/></symbol><symbol overflow="visible" id="h"><path d="M3.563-2.297c.015-.047.015-.062.015-.078 0-.078-.047-.203-.203-.203-.11 0-.203.062-.25.156-.03.03-.063.22-.094.328l-.31 1.25c-.04.172-.06.266-.31.485-.06.07-.25.22-.51.22-.43 0-.43-.39-.43-.5 0-.25.08-.53.35-1.18.047-.14.06-.19.06-.29 0-.33-.296-.51-.592-.51-.61 0-.904.798-.904.92 0 .034.03.08.11.08.094 0 .11-.03.125-.08.17-.575.483-.716.655-.716.11 0 .155.08.155.22 0 .124-.077.327-.14.484C1.06-1.19 1-.922 1-.706c0 .567.42.785.89.785.08 0 .36 0 .687-.28-.08.33-.14.56-.42.87-.11.125-.377.36-.737.36-.06 0-.31 0-.452-.157.268-.047.3-.28.3-.33C1.25.363 1.123.3 1 .3.86.3.656.423.656.69c0 .296.28.53.75.53.64 0 1.407-.47 1.578-1.22zm0 0"/></symbol><symbol overflow="visible" id="e"><path d="M2.14-3.797c0-.187-.015-.187-.203-.187-.39.39-1 .39-1.218.39v.235c.15 0 .56 0 .92-.17v3.02c0 .21 0 .29-.63.29H.76V0c.33-.03.797-.03 1.126-.03.33 0 .797 0 1.125.03v-.234h-.25c-.62 0-.62-.078-.62-.282zm0 0"/></symbol><symbol overflow="visible" id="f"><path d="M3.22-1.125H3c-.016.094-.078.484-.156.547-.047.047-.53.047-.625.047H1.11l.765-.63c.203-.17.734-.55.922-.74.172-.18.422-.49.422-.91C3.22-3.56 2.54-4 1.73-4c-.77.003-1.3.517-1.3 1.083 0 .295.25.342.31.342.152 0 .324-.11.324-.33 0-.125-.08-.328-.345-.328.14-.3.5-.53.92-.53.62 0 .95.47.95.95 0 .422-.288.86-.69 1.25L.5-.25C.437-.187.437-.187.437 0H3.03zm0 0"/></symbol><symbol overflow="visible" id="g"><path d="M1.766-1.984c.5 0 .843.343.843.953 0 .65-.39.93-.83.93C1.61-.1 1-.13.73-.47c.233-.03.33-.188.33-.345 0-.203-.14-.343-.347-.343-.157 0-.345.11-.345.36 0 .593.655.92 1.42.92.89 0 1.47-.56 1.47-1.155 0-.44-.33-.908-1.047-1.08.49-.157.86-.547.86-1.03 0-.486-.56-.845-1.28-.845-.7 0-1.23.328-1.23.812 0 .266.21.328.33.328.16 0 .31-.094.31-.312 0-.186-.12-.295-.29-.31.28-.31.83-.31.89-.31.3 0 .69.14.69.64 0 .327-.19.905-.793.936-.11 0-.264.015-.31.015-.063.02-.125.02-.125.11s.064.1.157.1zm0 0"/></symbol><symbol overflow="visible" id="i"><path d="M2.5-5.078c0-.22-.016-.22-.234-.22-.33.314-.75.5-1.5.5v.267c.218 0 .64 0 1.11-.21v4.08c0 .29-.032.39-.782.39H.812V0c.33-.03 1.016-.03 1.375-.03.36 0 1.047 0 1.376.03v-.266H3.28c-.75 0-.78-.093-.78-.39zm0 0"/></symbol><symbol overflow="visible" id="j"><path d="M2.25-1.625c.125-.125.453-.39.594-.5.484-.453.953-.89.953-1.61 0-.953-.797-1.562-1.78-1.562-.97 0-1.595.72-1.595 1.438 0 .39.312.44.422.44.172 0 .422-.11.422-.42 0-.4-.407-.4-.5-.4.234-.59.765-.78 1.156-.78.734 0 1.125.63 1.125 1.3 0 .83-.578 1.44-1.53 2.39l-1 1.05C.42-.22.42-.2.42 0h3.14l.235-1.422h-.25c-.016.156-.078.547-.172.703-.047.07-.656.07-.78.07H1.17zm0 0"/></symbol><symbol overflow="visible" id="k"><path d="M2.016-2.656c.625 0 1.03.453 1.03 1.297 0 1-.562 1.29-.983 1.29-.438 0-1.047-.15-1.33-.58.298 0 .5-.19.5-.44 0-.26-.186-.43-.452-.43-.2 0-.43.13-.43.46 0 .75.81 1.25 1.74 1.25C3.13.18 3.88-.555 3.88-1.35c0-.676-.53-1.27-1.342-1.457.626-.22 1.11-.75 1.11-1.39 0-.64-.718-1.09-1.546-1.09-.86 0-1.5.455-1.5 1.065 0 .296.18.42.4.42.25 0 .4-.17.4-.405 0-.3-.266-.41-.44-.41.346-.44.955-.47 1.096-.47.203 0 .812.062.812.89 0 .55-.237.89-.347 1.02-.23.25-.42.263-.902.294-.154 0-.22.013-.22.122 0 .11.08.11.22.11zm0 0"/></symbol></defs><path d="M52.582 109.667V69.98" fill="none" stroke="#000" stroke-width=".797" stroke-miterlimit="10" stroke-dasharray="0.79701, 1.99255"/><use xlink:href="#a" x="193.196" y="226.374" width="100%" height="100%" transform="translate(-143.106 -114.493)"/><path d="M13.85 109.667h107.224" fill="none" stroke="#000" stroke-width="1.196" stroke-miterlimit="10"/><path d="M15.762 112.218c-.157-.957-1.91-2.39-2.39-2.55.48-.16 2.233-1.594 2.39-2.552m103.402 0c.156.958 1.91 2.39 2.39 2.55-.48.16-2.234 1.595-2.39 2.552" fill="none" stroke="#000" stroke-width=".956" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"/><path d="M22.816 99.745h29.766m-9.922-9.92h29.762m9.922-9.923h29.765" fill="none" stroke="#000" stroke-width=".797" stroke-miterlimit="10"/><use xlink:href="#b" x="142.715" y="226.385" width="100%" height="100%" transform="translate(-143.106 -114.493)"/><use xlink:href="#c" x="148.475" y="227.345" width="100%" height="100%" transform="translate(-143.106 -114.493)"/><use xlink:href="#d" x="171.931" y="210.276" width="100%" height="100%" transform="translate(-143.106 -114.493)"/><use xlink:href="#e" x="175.651" y="211.356" width="100%" height="100%" transform="translate(-143.106 -114.493)"/><use xlink:href="#d" x="201.696" y="200.355" width="100%" height="100%" transform="translate(-143.106 -114.493)"/><use xlink:href="#f" x="205.416" y="201.435" width="100%" height="100%" transform="translate(-143.106 -114.493)"/><use xlink:href="#d" x="236.422" y="190.433" width="100%" height="100%" transform="translate(-143.106 -114.493)"/><use xlink:href="#g" x="240.142" y="191.513" width="100%" height="100%" transform="translate(-143.106 -114.493)"/><path d="M62.504 50.136V10.452" fill="none" stroke="#000" stroke-width=".797" stroke-miterlimit="10" stroke-dasharray="0.79701, 1.99255"/><use xlink:href="#a" x="203.117" y="166.845" width="100%" height="100%" transform="translate(-143.106 -114.493)"/><path d="M13.85 50.136h107.224" fill="none" stroke="#000" stroke-width="1.196" stroke-miterlimit="10"/><path d="M15.762 52.687c-.157-.953-1.91-2.39-2.39-2.55.48-.157 2.233-1.595 2.39-2.552m103.402 0c.156.957 1.91 2.395 2.39 2.55-.48.16-2.234 1.6-2.39 2.552" fill="none" stroke="#000" stroke-width=".956" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"/><path d="M22.816 40.218h29.766m9.922-9.926h29.76M42.66 20.374h29.762" fill="none" stroke="#000" stroke-width=".797" stroke-miterlimit="10"/><use xlink:href="#b" x="142.888" y="166.275" width="100%" height="100%" transform="translate(-143.106 -114.493)"/><use xlink:href="#h" x="148.648" y="167.235" width="100%" height="100%" transform="translate(-143.106 -114.493)"/><use xlink:href="#d" x="176.892" y="150.747" width="100%" height="100%" transform="translate(-143.106 -114.493)"/><use xlink:href="#e" x="180.612" y="151.827" width="100%" height="100%" transform="translate(-143.106 -114.493)"/><use xlink:href="#d" x="221.539" y="140.825" width="100%" height="100%" transform="translate(-143.106 -114.493)"/><use xlink:href="#f" x="225.259" y="141.905" width="100%" height="100%" transform="translate(-143.106 -114.493)"/><use xlink:href="#d" x="191.774" y="130.903" width="100%" height="100%" transform="translate(-143.106 -114.493)"/><use xlink:href="#g" x="195.495" y="131.984" width="100%" height="100%" transform="translate(-143.106 -114.493)"/><path d="M211.38 109.667V10.452m4.96 99.215V10.452m-52.086 52.086h119.058m-119.058-4.96h119.058" fill="none" stroke="#000" stroke-width=".797" stroke-miterlimit="10" stroke-dasharray="0.79701, 1.99255"/><path d="M175.13 109.667h107.225" fill="none" stroke="#000" stroke-width="1.196" stroke-miterlimit="10"/><path d="M177.043 112.218c-.16-.957-1.914-2.39-2.39-2.55.476-.16 2.23-1.594 2.39-2.552m103.397 0c.16.958 1.915 2.39 2.392 2.55-.477.16-2.23 1.595-2.39 2.552" fill="none" stroke="#000" stroke-width=".956" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"/><path d="M164.254 98.788v-87.38" fill="none" stroke="#000" stroke-width="1.196" stroke-miterlimit="10"/><path d="M166.805 96.874c-.957.16-2.39 1.914-2.55 2.395-.16-.49-1.595-2.24-2.552-2.4m0-83.56c.957-.16 2.39-1.91 2.55-2.39.16.48 1.595 2.23 2.552 2.39" fill="none" stroke="#000" stroke-width=".956" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"/><path d="M184.098 89.824h29.76V60.058H184.1zm19.842-39.688h29.763V20.374H203.94zm39.685 19.844h29.765V40.218h-29.765zm0 0" fill="none" stroke="#000" stroke-width=".797" stroke-miterlimit="10"/><use xlink:href="#i" x="339.967" y="192.003" width="100%" height="100%" transform="translate(-143.106 -114.493)"/><use xlink:href="#j" x="367.251" y="152.317" width="100%" height="100%" transform="translate(-143.106 -114.493)"/><use xlink:href="#k" x="399.496" y="164.719" width="100%" height="100%" transform="translate(-143.106 -114.493)"/><use xlink:href="#b" x="302.231" y="119.93" width="100%" height="100%" transform="translate(-143.106 -114.493)"/><use xlink:href="#h" x="307.99" y="120.891" width="100%" height="100%" transform="translate(-143.106 -114.493)"/><use xlink:href="#b" x="429.272" y="226.386" width="100%" height="100%" transform="translate(-143.106 -114.493)"/><use xlink:href="#c" x="435.033" y="227.346" width="100%" height="100%" transform="translate(-143.106 -114.493)"/></svg>
-  figcaption 
-    em Fig 2. 
+  figcaption
+    em Fig 2.
     | A set of $2$-intervals (left) arising from a set of axis-parallel rectangles (right).
 
-p An example of a set of $2$-intervals is shown on the left of 
+p An example of a set of $2$-intervals is shown on the left of
   a.ref(href="#fig-2-interval")
   |. In this example, the two copies of the real line are $L_x$ and $L_y$ and the $2$-intervals are $\mathfrak{I}=\{I_1,I_2,I_3\}$. We have $\nu(\mathfrak{I})=1$ because the $2$-intervals are pairwise intersecting, while $\tau(\mathfrak{I})=2$ because $2$ points of $L_x\cup L_y$ are required to intersect each of $I_1$, $I_2$, and $I_3$.
 
 p It is trivial to see that $\tau(\mathfrak{I})\ge \nu(\mathfrak{I})$. In the other direction, building on and improving work of Gyárfás and Lehel&nbsp;
-  cite(target="gyarfas_a-helly-type-pr") 
+  cite(target="gyarfas_a-helly-type-pr")
   | and Károlyi and Tardos&nbsp;
   cite(target="karolyi_on-point-covers")
   |,  Tardos established the following.
@@ -88,36 +125,36 @@ theorem#thm-2int-transversal
     cite(href="tardos_transversals-of")
   p For every system $\mathfrak{I}$ of $2$-intervals, $\tau(\mathfrak{I})\le 2\nu(\mathfrak{I})$.
 
-p Note that the bound in 
-  a.ref(href="#thm-2int-transversal") 
-  | is best possible given the example from 
+p Note that the bound in
+  a.ref(href="#thm-2int-transversal")
+  | is best possible given the example from
   a.ref(href="#fig-2-interval")
   |.
 
 p Henceforth we adopt a geometric viewpoint of permutations where a permutation $\pi$ is identified with its <em>plot</em>, the set of points $\{(i,\pi(i))\}$ in the plane. Given two intervals $X$ and $Y$ of real numbers, we denote by $X\times Y$ the axis-parallel rectangle consisting of the points $\{(x,y)\st x\in X, y\in Y\}$. We further define $\pi(X\times Y)$ to be the subpermutation of $\pi$ formed by the entries of $\pi$ whose indices lie in $X$ and values lie in $Y$.
 
-p Given a set of closed axis-parallel rectangles $\mathfrak{R}$ we can naturally associate to it a set $\mathfrak{I}$ of $2$-intervals in the following manner. Let $L_x$ and $L_y$ be disjoint copies of the real line. For each $R\in\mathfrak{R}$ we create a $2$-interval $I_R$ such that $I_R\cap L_x$ is the projection of $R$ onto the $x$-axis and $I_R\cap L_y$ is the projection of $R$ onto the $y$-axis. The set of three rectangles shown on the right of 
-  a.ref(href="#fig-2-interval") 
+p Given a set of closed axis-parallel rectangles $\mathfrak{R}$ we can naturally associate to it a set $\mathfrak{I}$ of $2$-intervals in the following manner. Let $L_x$ and $L_y$ be disjoint copies of the real line. For each $R\in\mathfrak{R}$ we create a $2$-interval $I_R$ such that $I_R\cap L_x$ is the projection of $R$ onto the $x$-axis and $I_R\cap L_y$ is the projection of $R$ onto the $y$-axis. The set of three rectangles shown on the right of
+  a.ref(href="#fig-2-interval")
   | corresponds in this manner to the set of $2$-intervals shown on the left of the figure.
 
 p We say that two rectangles are <em> independent</em> if both their $x$- and $y$-axis projections are disjoint. A set of rectangles is said to be independent if they are pairwise independent, and we define the <em>independence number</em> of a set of axis-parallel rectangles to be the size of the largest independent set of rectangles it contains.
 
-p It follows readily that if $\mathfrak{R}$ is a set of closed axis-parallel rectangles and $\mathfrak{I}$ is the corresponding set of $2$-intervals then the independence number of $\mathfrak{R}$ is equal to the packing number of $\mathfrak{I}$. Therefore 
-  a.ref(href="#thm-2int-transversal") 
-  | shows that $\mathfrak{I}$ has a transversal of size at most $2\nu(\mathfrak{I})$. That is, there is a set of at most $2\nu(\mathfrak{I})$ points of $L_x\cup L_y$ which intersect every $2$-interval in $\mathfrak{I}$. We want to convert this transversal of $\mathfrak{I}$ into a set of vertical and horizontal lines that <em>slice</em> (i.e., intersect the interior) of every rectangle in $\mathfrak{R}$, but we must be careful because the transversal is allowed to contain endpoints of $2$-intervals. Thus given a transversal $T\subseteq L_x\cup L_y$ we associate to it a set of vertical and horizontal lines $\mathcal{L}_T$ in the following way: if $t\in T$ is from $L_x$ we associate the two vertical lines $x=t\pm\epsilon$ while if $t\in T$ is from $L_y$ we associate the two horizontal lines $y=t\pm\epsilon$ where $\epsilon>0$ is a small constant (depending on $\mathfrak{R}$). These are the dotted lines shown in 
+p It follows readily that if $\mathfrak{R}$ is a set of closed axis-parallel rectangles and $\mathfrak{I}$ is the corresponding set of $2$-intervals then the independence number of $\mathfrak{R}$ is equal to the packing number of $\mathfrak{I}$. Therefore
+  a.ref(href="#thm-2int-transversal")
+  | shows that $\mathfrak{I}$ has a transversal of size at most $2\nu(\mathfrak{I})$. That is, there is a set of at most $2\nu(\mathfrak{I})$ points of $L_x\cup L_y$ which intersect every $2$-interval in $\mathfrak{I}$. We want to convert this transversal of $\mathfrak{I}$ into a set of vertical and horizontal lines that <em>slice</em> (i.e., intersect the interior) of every rectangle in $\mathfrak{R}$, but we must be careful because the transversal is allowed to contain endpoints of $2$-intervals. Thus given a transversal $T\subseteq L_x\cup L_y$ we associate to it a set of vertical and horizontal lines $\mathcal{L}_T$ in the following way: if $t\in T$ is from $L_x$ we associate the two vertical lines $x=t\pm\epsilon$ while if $t\in T$ is from $L_y$ we associate the two horizontal lines $y=t\pm\epsilon$ where $\epsilon>0$ is a small constant (depending on $\mathfrak{R}$). These are the dotted lines shown in
   a.ref(href="#fig-2-interval")
   |. This construction yields the following result.
- 
+
 
 corollary#cor-2int-slice
   p If a finite collection $\mathfrak{R}$ of axis-parallel rectangles has independence number at most $m$ then there is a collection of $4m$ vertical and horizontal lines which slice every rectangle in $\mathfrak{R}$.
 
-p We need one more definition. An <em>increasing sequence</em> of rectangles is a sequence $R_1,\dots,R_m$ of independent rectangles such that $R_{i+1}$ lies above and to the right of $R_i$ for all $i$. <em>Decreasing sequences</em> of rectangles are defined analogously. We are now ready to prove 
+p We need one more definition. An <em>increasing sequence</em> of rectangles is a sequence $R_1,\dots,R_m$ of independent rectangles such that $R_{i+1}$ lies above and to the right of $R_i$ for all $i$. <em>Decreasing sequences</em> of rectangles are defined analogously. We are now ready to prove
   a.ref(href="#thm-EH-main")
   |.
 
 
-section.proof 
+section.proof
   h2 of <a class="ref" href="#thm-EH-main"></a>
   p Let $\C$ be a permutation class which does not contain the class of layered permutations or the class of colayered permutations. Thus there is an integer $k$ such that $\C$ contains neither $\oplus^k (k\cdots 21)$ nor $\ominus^k (12\cdots k)$. Now choose a permutation $\pi\in\C$ and let $\mathfrak{R}_\pi$ denote the collection of all axis-parallel rectangles $R$ such that $\pi(R)$ contains both $k\cdots 21$ and $12\cdots k$. If $\mathfrak{R}_\pi$ were to contain an independent set of $(k-1)^2+1$ rectangles then the Erdős&ndash;Szekeres Theorem would imply that $\mathfrak{R}_\pi$ contained an increasing or decreasing sequence of $k$ rectangles, but that would imply that $\pi$ (and hence also $\C$) contained $\oplus^k (k\cdots 21)$ or $\ominus^k (12\cdots k)$, a contradiction. Thus the independence number of $\mathfrak{R}_\pi$ is at most $(k-1)^2$.
 
@@ -126,7 +163,7 @@ section.proof
 
 p In the language of generalized grid classes introduced in Vatter&nbsp;
   cite(target="vatter_small-permutati")
-  |, the proof of <a class="ref" href="#thm-EH-main"></a> shows that all permutation classes that do not contain the layered or colayered permutations are $\Av(k\cdots 21)\cup\Av(12\cdots k)$-griddable. In fact, this follows from 
+  |, the proof of <a class="ref" href="#thm-EH-main"></a> shows that all permutation classes that do not contain the layered or colayered permutations are $\Av(k\cdots 21)\cup\Av(12\cdots k)$-griddable. In fact, this follows from
   cite(target="vatter_small-permutati") Theorem 3.1
   |, though the bounds given in the proof above are better than that theorem gives.
 
