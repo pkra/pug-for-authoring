@@ -5,7 +5,9 @@
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"no tests\""
+    "test": "echo \"no tests\"",
+    "build": "node build.js",
+    "watch": "npm-watch"
   },
   "repository": {
     "type": "git",
@@ -22,5 +24,11 @@
   "bugs": {
     "url": "https://github.com/pkra/pug-for-authoring/issues"
   },
-  "homepage": "https://github.com/pkra/pug-for-authoring#readme"
+  "homepage": "https://github.com/pkra/pug-for-authoring#readme",
+  "dependencies": {
+    "npm-watch": "^0.1.9"
+  },
+  "watch" :{
+    "build": "content.pug"
+  }
 }
