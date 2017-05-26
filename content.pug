@@ -5,8 +5,12 @@ script postProcessing();
 
 span Source: <a href="https://arxiv.org/abs/1511.01076">arxiv#1511.01076</a>  Distributed under a Creative Commons Attribution 4.0 International License
 mixin citation(id)
+  |
+  |
   span.cite
     a(data-key=id)= id
+  |
+  |
 
 mixin block(type, id, suffix)
   section(class= type, id= id)
