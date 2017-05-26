@@ -5,7 +5,10 @@ const postProcessing = function () {
     let proofs = document.querySelectorAll('.proof');
     for (let proof of proofs) {
         let heading = proof.querySelector('h1, h2, h3, h4, h5, h6');
-        if (heading) heading.innerHTML = "Proof " + heading.innerHTML.trim();
+        if (heading) {
+            console.log('Hello');
+            heading.innerHTML = "Proof " + heading.innerHTML.trim();
+        }
         else {
             // TODO look up hierarchy
             heading = document.createElement('h2');
@@ -115,3 +118,4 @@ let script = document.createElement('script');
 script.type = 'text/javascript';
 script.src = 'https://cdn.rawgit.com/mathjax/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML-full';
 document.getElementsByTagName('head')[0].appendChild(script);
+window.onload = postProcessing;
