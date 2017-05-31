@@ -28,12 +28,26 @@ const postProcessing = function () {
         theorem.insertBefore(heading, theorem.firstChild);
     }
 
-    let anchors = document.querySelectorAll('a[href^="#"]');
+    // let anchors = document.querySelectorAll('a[href^="#"]');
 
+    // let fillRef = function (anchor) {
+    //     let href = anchor.getAttribute('href');
+    //     let id = href.substring(href.indexOf('#') + 1);
+    //     // console.log(id);
+    //     let aTarget = document.getElementById(id);
+    //     if (aTarget) {
+    //         let contentSource = aTarget.querySelector('h1, h2, h3, h4, h5, figcaption em');
+    //         let content = contentSource.innerHTML || contentSource.id || id;
+    //         anchor.innerHTML = content.trim();
+    //     } else anchor.innerHTML = anchor.className + ': ' + id;
+    // }
+
+    // for (let a of anchors) fillRef(a);
+
+    let refs = document.querySelectorAll('.ref');
     let fillRef = function (anchor) {
-        let href = anchor.getAttribute('href');
-        let id = href.substring(href.indexOf('#') + 1);
-        // console.log(id);
+        let id = anchor.innerHTML;
+        anchor.href = '#' + id;
         let aTarget = document.getElementById(id);
         if (aTarget) {
             let contentSource = aTarget.querySelector('h1, h2, h3, h4, h5, figcaption em');
@@ -41,8 +55,7 @@ const postProcessing = function () {
             anchor.innerHTML = content.trim();
         } else anchor.innerHTML = anchor.className + ': ' + id;
     }
-
-    for (let a of anchors) fillRef(a);
+    for (let a of refs) fillRef(a);
 
     // citations
     let bib = {
