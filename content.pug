@@ -37,6 +37,15 @@ mixin theorem(id, suffix)
 //- +theorem('mythm','mysuffix') Hello World
 //- this doesn't work as I'd expected -- pkra.
 
+mixin figure(id, src, alt)
+  figure(id= id)
+    img(src= src, alt= alt, class='figure')
+    figcaption
+      if block
+        block
+  // post-processor checks if firstElementChild is em, if not, adds auto-numbered tag
+  // user-build auto-numberers can do what they want
+
 //- TODO
 //- properly handle other theorem environments (proposition, corollary)
 //- easier \ref markup (dpub-aria? custom element?)
@@ -84,10 +93,7 @@ p We instead ask for a stronger conclusion. A <em>permutation class</em> is a do
 
 p The Erdős&ndash;Szekeres Theorem is best possible in that there are permutations of length $(k-1)(\ell-1)$ which have neither decreasing subsequences of length $k$ nor increasing subsequences of length $\ell$. Focusing on the case $k=\ell$, we call a permutation of length $k^2$ <em>Erdős&ndash;Szekeres extremal</em> if it does not contain a monotone subsequence of length $k+1$. If follows from the Robinson&ndash;Schensted correspondence and the Hook Length Formula that the number of Erdős&ndash;Szekeres extremal permutations of length $k^2$ is \[ \left(\frac {(k^2)!} {1^1\cdot 2^2\cdot 3^3\cdots k^k\cdot (k+1)^{k-1}\cdot (k+2)^{k-2}\cdots (2k-1)^1} \right)^2, \] sequence A079402 in the OEIS <cite target="sloane_the-on-line-enc"></cite>. One of the earliest references to this formula is Stanley's <em>Monthly</em> solution&nbsp;<cite target="stanley_solution-to-pro_5641"></cite>  from 1969. There has also been some recent interest in these permutations. In particular, Romik&nbsp;<cite target="romik_permutations-wi"></cite> computed the limit shape of Erdős&ndash;Szekeres extremal permutations. Additional results in this direction have been obtained by Kim&nbsp;<cite target="kim_on-increasing-s"></cite>, Pittel and Romik&nbsp;<cite target="pittel_limit-shapes-fo"></cite>, and Su&nbsp;<cite target="su_on-increasing-s"></cite>.
 
-figure#fig-layered-EES
-  div.tikz
-    img(src="fig1.svg")
-  figcaption
++figure("fig-layered-EES","fig1.svg")
     em Fig. 1
     |
     | The layered permutation $321\ 654\ 987=\oplus^3 (321)$ and the colayered permutation $789\ 456\ 123=\ominus^3 (123)$.
@@ -96,8 +102,7 @@ p Despite the fact that there are a great many extremal Erdős&ndash;Szekeres pe
   +ref("fig-layered-EES")
   |. It is convenient to use the <em>sum</em> and <em>skew sum</em> operations in defining these permutations, which can be defined pictorially as below.
 
-div.tikz
-  img(src="fig-noname.svg")
+img.figure(src="fig-noname.svg")
 
 p We use the symbols $\oplus^k$ and $\ominus^k$ to denote repeated sums and skew sums, respectively, so the extremal Erdős&ndash;Szekeres layered permutation of length $k^2$ is \[ \oplus^k (k\cdots 21) = \underbrace{(k\cdots 21)\oplus\cdots\oplus (k\cdots 21)}_{\text{ $k$ summands}}. \] We show that these two families of extremal permutations are the only obstructions preventing a class from having a linear bound on monotone subsequences:
 
@@ -124,10 +129,7 @@ p To establish
     cite(target="#kaiser_transversals-of")
   | $d$-intervals (although we only appeal to the case $d=2$ in what follows).  Let $L_1$, $\dots$, $L_d$ be disjoint copies of the real line. A $d$-interval $I$ is a nonempty subset of $L_1\cup\cdots\cup L_d$ such that each <em>component</em> $I\cap L_i$ is either empty or a closed interval. The <em>packing number</em> of a set $\mathfrak{I}$ of $d$-intervals is the maximum number of pairwise disjoint elements of $\mathfrak{I}$, and this quantity is denoted $\nu(\mathfrak{I})$. A subset of $L_1\cup\cdots \cup L_d$ which intersects every member of $\mathfrak{I}$ is called a <em>transversal</em> of $\mathfrak{I}$ and the minimum size of a transversal of $\mathfrak{I}$ is its <em>transversal number</em>, $\tau(\mathfrak{I})$.
 
-figure#fig-2-interval
-  div.tikz
-    img(src="fig2.svg")
-  figcaption
++figure('fig-2-interval','fig2.svg')
     em Fig 2.
     |
     | A set of $2$-intervals (left) arising from a set of axis-parallel rectangles (right).
