@@ -20,22 +20,21 @@ mixin ref(id, type)
   |
   |
 
-mixin block(type, id, suffix)
+mixin thmblock(type, id, suffix)
   section(class= type, id= id)
     h1= type
       |
       |
-      span= suffix
+      span !{suffix}
       |
       |
     if block
       block
 
 mixin theorem(id, suffix)
-  +block('Theorem', id, suffix)
-
-//- +theorem('mythm','mysuffix') Hello World
-//- this doesn't work as I'd expected -- pkra.
+  +thmblock('Theorem', id, suffix)
+    if block
+      block
 
 //- TODO
 //- properly handle other theorem environments (proposition, corollary)
@@ -59,21 +58,16 @@ section
         em received 4th Nov. 2015, accepted 8th Feb. 2016
 
 
-+block('Abstract', 'abstract')
++thmblock('Abstract', 'abstract')
   p Let $\mathcal{C}$ be a permutation class that does not contain all layered permutations or all colayered permutations. We prove that every permutation in $\mathcal{C}$ contains a monotone subsequence of linear size.
-
 
 p Ramsey's Theorem tells us that every graph on $n$ vertices has a clique or independent set of size at least a constant times $\log n$. In 1989, Erdős and Hajnal conjectured that one can do much better when avoiding a fixed induced subgraph:
 
-theorem#erdos-hajnal-conjecture
-  h1 The Erdős&ndash;Hajnal Conjecture
-    +citation('EH')
-  p
-    em For every graph $H$ there is a constant $\delta>0$ such that every graph on $n$ vertices which does not contain $H$ as an induced subgraph has a clique or independent set of size at least $n^\delta$.
++theorem('erdos-hajnal-conjecture',"The Erdös–Hajnal Conjecture") For every graph $H$ there is a constant $\delta\ge0$ such that every graph on $n$ vertices which does not contain $H$ as an induced subgraph has a clique or independent set of size at least $n^\delta$. #[+citation('EH')]
 
 p We refer to Chudnovsky's survey&nbsp;<cite target="chudnovsky_the-erdos--hajn"></cite> for an account of the progress that has been made toward the Erdős&ndash;Hajnal Conjecture. Here we investigate a version of this conjecture for permutations. In this context, the analogue of the induced subgraph order is the permutation pattern order and the analogues of cliques and independent sets are decreasing and increasing subsequences, respectively. Thus the naive translation of the Erdős&ndash;Hajnal Conjecture to permutations is well known to hold with $\delta=\nicefrac{1}{2}$:
 
-theorem#erdos-hajnal-conjecture
+theorem#erdos-szekeres-theorem
   h1 The Erdős&ndash;Szekeres Theorem
     cite(target="erdos_a-combinatorial")
   p Every permutation of length at least $(k-1)(\ell-1)+1$ contains either a decreasing subsequence of length $k$ or an an increasing subsequence of length $\ell$.
