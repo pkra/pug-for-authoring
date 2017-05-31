@@ -507,3 +507,8 @@
  .margin--left--large {
      margin-left: 3.25rem
  }
+
+.figure {
+    display: block;
+    margin: 0 auto;
+}
